@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	  <BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
+	  <OutputPath>$(SolutionDir)\bin\</OutputPath>
+	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	  <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+	  <ApplicationIcon>icon.ico</ApplicationIcon>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CartPL\icons8-magnetic-card-80.png" />
+    <None Remove="CartPL\icons8-u-turn-to-left-64.png" />
+    <None Remove="CartPL\r.jpg" />
+    <None Remove="CartPL\trash-2-outline.png" />
+    <None Remove="icons8-home-page-64.png" />
+    <None Remove="instagram.jpg" />
+    <None Remove="PLOrder\cart.png" />
+    <None Remove="PLOrder\icons8-add-shopping-cart-64.png" />
+    <None Remove="PLOrder\logo.png" />
+    <None Remove="PLOrder\r.jpg" />
+    <None Remove="PLOrder\rrrr.jpg" />
+    <None Remove="PLProduct\r.jpg" />
+    <None Remove="PLProduct\rrrr.jpg" />
+    <None Remove="r.jpg" />
+    <None Remove="rrrr.jpg" />
+    <None Remove="wedding-cake-1704427.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CartPL\icons8-magnetic-card-80.png" />
+    <Resource Include="CartPL\icons8-u-turn-to-left-64.png" />
+    <Resource Include="CartPL\r.jpg" />
+    <Resource Include="CartPL\trash-2-outline.png" />
+    <Resource Include="icons8-home-page-64.png" />
+    <Resource Include="instagram.jpg" />
+    <Resource Include="PLOrder\cart.png" />
+    <Resource Include="PLOrder\icons8-add-shopping-cart-64.png" />
+    <Resource Include="PLOrder\logo.png" />
+    <Resource Include="PLOrder\r.jpg" />
+    <Resource Include="PLOrder\rrrr.jpg" />
+    <Resource Include="PLProduct\r.jpg" />
+    <Resource Include="PLProduct\rrrr.jpg" />
+    <Resource Include="r.jpg" />
+    <Resource Include="rrrr.jpg" />
+    <Resource Include="wedding-cake-1704427.jpg" />
+  </ItemGroup>
+
+</Project>

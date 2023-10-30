@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <ID>100004</ID>
+    <Name>Muffins</Name>
+    <Price>30</Price>
+    <Category>cookies</Category>
+    <Amount>14</Amount>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>Macarons</Name>
+    <Price>25</Price>
+    <Category>cookies</Category>
+    <Amount>7</Amount>
+  </Product>
+  <Product>
+    <ID>100007</ID>
+    <Name>unicorn bat mitzvah cake</Name>
+    <Price>450</Price>
+    <Category>cakes_For_Events</Category>
+    <Amount>6</Amount>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>bar mitzvah tefillin cake</Name>
+    <Price>460</Price>
+    <Category>cakes_For_Events</Category>
+    <Amount>3</Amount>
+  </Product>
+  <Product>
+    <ID>100009</ID>
+    <Name>Shabbat package</Name>
+    <Price>85</Price>
+    <Category>packages</Category>
+    <Amount>26</Amount>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>donuts</Name>
+    <Price>95</Price>
+    <Category>specials</Category>
+    <Amount>0</Amount>
+  </Product>
+  <Product>
+    <ID>100000</ID>
+    <Name>Chocolate balls</Name>
+    <Category>vegan</Category>
+    <Amount>30</Amount>
+    <Price>15</Price>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>Carrot Cake</Name>
+    <Category>vegan</Category>
+    <Amount>22</Amount>
+    <Price>65</Price>
+  </Product>
+  <Product>
+    <ID>100002</ID>
+    <Name>Amsterdam cookie</Name>
+    <Category>cookies</Category>
+    <Amount>45</Amount>
+    <Price>45</Price>
+  </Product>
+  <Product>
+    <ID>100003</ID>
+    <Name>Chocolate Chips Cookies</Name>
+    <Category>cookies</Category>
+    <Amount>83</Amount>
+    <Price>40</Price>
+  </Product>
+  <Product>
+    <ID>100006</ID>
+    <Name>wedding cake rose design</Name>
+    <Category>cakes_For_Events</Category>
+    <Amount>0</Amount>
+    <Price>800</Price>
+  </Product>
+</ArrayOfProduct>

@@ -1,0 +1,75 @@
+﻿<Window x:Class="PL.PLOrder.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.PLOrder"
+        mc:Ignorable="d"
+        DataContext="{Binding curOrder,RelativeSource={RelativeSource Self}}"
+        Title="OrderWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/PLOrder/r.jpg"/>
+    </Window.Background>
+    <Grid x:Name="grid1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" Height="280" Width="389">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="103"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="151"/>
+            <ColumnDefinition Width="108"/>
+            <ColumnDefinition Width="5.473"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="31.96"/>
+        </Grid.RowDefinitions>
+        <Label Content="Customer Adress:" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="103"/>
+        <TextBox x:Name="customerAdressTextBox" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Height="18" Text="{Binding CustomerAdress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <Label Content="Customer Email:" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="95"/>
+        <TextBox x:Name="customerEmailTextBox" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Height="18" Grid.Row="1" Text="{Binding CustomerEmail, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <Label Content="Customer Name:" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="99"/>
+        <TextBox x:Name="customerNameTextBox" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Height="18" Grid.Row="2" Text="{Binding CustomerName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <Label Grid.Column="0" Content="Delivery Date:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="6" VerticalAlignment="Center" Height="26" Width="83"/>
+        <DatePicker x:Name="deliveryDateDatePicker"  IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="6" SelectedDate="{Binding DeliveryDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="24" Width="120"/>
+        <Label Grid.Column="0" Content="ID:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="3" VerticalAlignment="Center" Height="26" Width="24"/>
+        <TextBox x:Name="iDTextBox" Grid.Column="2" IsEnabled="False" HorizontalAlignment="Center" Height="18" Grid.Row="3" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <Label Grid.Column="0" Content="Order Date:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="4" VerticalAlignment="Center" Height="26" Width="71"/>
+        <DatePicker x:Name="orderDateDatePicker"  IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" SelectedDate="{Binding OrderDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="24" Width="118"/>
+        <Label Grid.Column="0" Content="Order Status:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="7" VerticalAlignment="Center" Height="26" Width="79"/>
+        <ComboBox x:Name="orderStatusComboBox" Grid.Column="2" IsReadOnly="True"  HorizontalAlignment="Center" Height="22" Grid.Row="7" VerticalAlignment="Center" Width="120">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel/>
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <Label Grid.Column="0" Content="Ship Date:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="5" VerticalAlignment="Center" Height="26" Width="64"/>
+        <DatePicker x:Name="shipDateDatePicker" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="5" SelectedDate="{Binding ShipDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="24" Width="120"/>
+        <Label Grid.Column="0" Content="Total Price:" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="8" VerticalAlignment="Center" Height="26" Width="67"/>
+        <TextBox x:Name="totalPriceTextBox"  IsEnabled="False" Grid.Column="2" HorizontalAlignment="Center" Height="18" Grid.Row="8" Text="{Binding TotalPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <DataGrid x:Name="orderItemDataGrid"  AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="True"  RowDetailsVisibilityMode="VisibleWhenSelected" Grid.Column="7" Margin="35,-13,-367,-37" Grid.RowSpan="9" SelectionChanged="orderItemDataGrid_SelectionChanged" FontFamily="Bell MT" >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Amount" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID}" Header="Product ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="totalPriceForItemColumn" Binding="{Binding TotalPriceForItem}" Header="Total Price For Item" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="UpdateDeliverBtn" Grid.Column="3"  Style="{StaticResource btnStyle}" Content="Update Delivery Date" HorizontalAlignment="Center" Height="26" Grid.Row="6" VerticalAlignment="Center" Width="116" Click="UpdateDeliverBtn_Click" FontSize="10"/>
+        <Button x:Name="UpdateShipDateBtn" Style="{StaticResource btnStyle}" Grid.Column="3" Content="Update Ship Date" HorizontalAlignment="Center" Height="24" Grid.Row="5" VerticalAlignment="Bottom" Width="120" Click="UpdateShipDateBtn_Click" Margin="0,0,0,1" FontSize="12"/>
+        <Button x:Name="CloseBtn" Grid.Column="3" Style="{StaticResource btnStyle}" Content="Close" HorizontalAlignment="Left" Margin="54,5,0,0" Grid.Row="8" Width="64" Click="CloseBtn_Click" Grid.ColumnSpan="5" Height="22" VerticalAlignment="Top"/>
+    </Grid>
+
+
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
+VerticalAlignment="Stretch" Width="auto">
+            <Grid.Background>
+                <ImageBrush TileMode="FlipY" Stretch="Fill" ImageSource="/wedding-cake-1704427.jpg"/>
+            </Grid.Background>
+            <Grid.Style>
+                <Style/>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions >
+            <Button x:Name="Button" Content="Admin login" HorizontalAlignment="Left" Margin="218,57,0,0" VerticalAlignment="Top" Height="42" Width="126" Click="Button_Click" Style="{StaticResource btnStyle  }" Grid.Column="1" Background="#FFFEFBFC" Foreground="#FF1E0C0C" BorderBrush="{x:Null}" RenderTransformOrigin="0.607,1.154" />
+            <Button x:Name="btnNeworder" Content="New order" HorizontalAlignment="Left" Margin="218,103,0,0" VerticalAlignment="Top" Height="42" Width="126" Style="{StaticResource btnStyle  }" Grid.Column="1" Background="#FFFEFBFC" Foreground="#FF1E0C0C" BorderBrush="{x:Null}" RenderTransformOrigin="0.607,1.154" Click="btnNeworder_Click"  />
+            <Button x:Name="btnOrderTracking" Content="Order tracking" HorizontalAlignment="Left" Margin="218,149,0,0" VerticalAlignment="Top" Height="42" Width="126"  Style="{StaticResource btnStyle  }" Grid.Column="1" Background="#FFFEFBFC" Foreground="#FF1E0C0C" BorderBrush="{x:Null}" RenderTransformOrigin="0.607,1.154" Click="btnOrderTracking_Click"/>
+        </Grid>
+    </Grid>
+</Window>

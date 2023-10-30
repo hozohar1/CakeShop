@@ -1,0 +1,56 @@
+﻿<Window x:Class="PL.CartPL.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.CartPL"
+        mc:Ignorable="d"
+         DataContext="{Binding CartPLL ,RelativeSource={RelativeSource Self}}" 
+        Title="CartWindow" Height="450" Width="600">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/CartPL/r.jpg"/>
+        </Grid.Background>
+        <Label Grid.Column="0" Content="Total Price:" HorizontalAlignment="Left" Margin="260,360,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="totalPriceTextBox"  IsReadOnly="True"  HorizontalAlignment="Center" Height="NaN" Margin="0,389,0,0" Text="{Binding TotalPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" />
+
+        <DataGrid x:Name="orderItemDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding }" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" Margin="88,15,88,83" BorderBrush="#FFF2F3F4" OpacityMask="#FFFFF9F9" SelectionChanged="orderItemDataGrid_SelectionChanged"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Amount" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID}" Header="Product ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="totalPriceForItemColumn" Binding="{Binding TotalPriceForItem}" Header="Total Price For Item" Width="SizeToHeader"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDetails"  FontWeight="Bold" Click="btnDetails_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/CartPL/trash-2-outline.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button HorizontalAlignment="Left" Style="{StaticResource btnStyle}"  Height="36" Margin="10,385,0,0" VerticalAlignment="Top" Width="36" Click="Button_Click" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/CartPL/icons8-u-turn-to-left-64.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnPay" Style="{StaticResource btnStyle}"   HorizontalAlignment="Left" Margin="536,380,0,0" Width="54" Click="btnPay_Click" Height="46" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/CartPL/icons8-magnetic-card-80.png"/>
+            </Button.Background>
+        </Button>
+        <Button  HorizontalAlignment="Right" Margin="0,0,10,0" Width="44" BorderBrush="{x:Null}" Height="40" VerticalAlignment="Top" Click="Button_Click" Foreground="{x:Null}" RenderTransformOrigin="0.477,0.876">
+            <Button.Background>
+                <ImageBrush ImageSource="/icons8-home-page-64.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

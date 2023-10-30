@@ -1,0 +1,66 @@
+﻿<Window x:Class="PL.PayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+          DataContext="{Binding CartPL ,RelativeSource={RelativeSource Self}}" 
+    
+        Title="PayWindow" Height="450" Width="400">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/r.jpg"/>
+        </Grid.Background>
+        <Grid x:Name="grid1"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,71,0,0" Background="#FFFBFBFB">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="credit card number:" HorizontalAlignment="Left" Margin="3" Grid.Row="01" VerticalAlignment="Center" FontFamily="Bell MT" FontSize="16"/>
+            <TextBox x:Name="credit_card_numberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="1" Text="{Binding credit_card_number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="cvv:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontFamily="Bell MT" FontSize="16"/>
+            <TextBox x:Name="cvv" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="2" Text="{Binding cvv, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="ID of the cardholder:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Bell MT" FontSize="16"/>
+            <TextBox x:Name="iD" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding ID_of_the_cardholder, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="validity:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontFamily="Bell MT" FontSize="16"/>
+            <DatePicker x:Name="validityDatePicker" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" SelectedDate="{Binding validity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Label Content="Payment page" Margin="14,12,-14,375" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
+        <Button Content="✔" Style="{StaticResource btnStyle}" HorizontalAlignment="Left" Height="36" Margin="350,386,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click_1" Background="{x:Null}" BorderBrush="Black"/>
+        <Grid x:Name="grid1_Copy"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,224,0,0" Background="#FFFAFAFA">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Content="Customer Adress:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="customerAdressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding CustomerAdress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Customer Email:" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="customerEmailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="1" Text="{Binding CustomerEmail, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Customer Name:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="customerNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="2" Text="{Binding CustomerName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Total Price:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="totalPriceTextBox" Grid.Column="1"  IsReadOnly="True"  HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="3" Text="{Binding TotalPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+
+        </Grid>
+        <Button  HorizontalAlignment="Left" Margin="14,384,0,0" Width="44" BorderBrush="Black" Height="40" VerticalAlignment="Top" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/icons8-home-page-64.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

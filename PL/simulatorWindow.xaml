@@ -1,0 +1,61 @@
+﻿<Window x:Class="PL.simulatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+      DataContext="{Binding ListOrders,RelativeSource={RelativeSource Self}}"
+        Title="simulatorWindow" Height="450" Width="800" Activated="Window_Activated">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/PLOrder/r.jpg"/>
+        </Grid.Background>
+        <DataGrid x:Name="orderForListDataGrid"   AutoGenerateColumns="False"
+            EnableRowVirtualization="True"
+            ItemsSource="{Binding}"
+            RowDetailsVisibilityMode="VisibleWhenSelected"
+            Margin="38,10,76,85" FontFamily="Bell MT">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn x:Name="customerNameColumn" Binding="{Binding CustomerName}" Header="Customer Name" Width="100"/>
+                <DataGridTextColumn x:Name="id" Binding="{Binding ID}" Header="ID" Width="40"/>
+                <DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Amount" Width="60"/>
+                <DataGridTextColumn x:Name="totalPriceColumn" Binding="{Binding TotalPrice}" Header="Total Price" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="orderStatusColumn" Header="Order status" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Width="60"  Content="{Binding OrderStatus}" Background="{Binding OrderStatus , Converter={StaticResource ColorStatus}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="order details">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDetails" Content="Watch Order Tracking" Width="120" FontWeight="Bold" Click="btnDetails_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="execution process">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ProgressBar x:Name="progBarTime" Width="120" Value="{Binding OrderStatus , Converter={StaticResource ConvertorStatus}}" Foreground="{Binding OrderStatus , Converter={StaticResource ColorStatus}}" />
+
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Start tracking" Style="{StaticResource btnStyle}" HorizontalAlignment="Left" Height="31" Margin="519,393,0,0" VerticalAlignment="Top" Width="96" Click="startBtn"/>
+        <Button Content="Stop tracking" Style="{StaticResource btnStyle}" HorizontalAlignment="Left" Height="31" Margin="627,393,0,0" VerticalAlignment="Top" Width="101" Click="StopBtn"/>
+        <Button Content="Close" Style="{StaticResource btnStyle}" HorizontalAlignment="Left" Height="31" Margin="741,393,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+
+
+
+    </Grid>
+</Window>
