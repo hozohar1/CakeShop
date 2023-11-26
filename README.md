@@ -7,5 +7,5 @@ C# .NET +WPF Mini Project on Windows
 * 3 layer model, using the technological tools: .NET services, C#,
   Design pattern, WPF,XML
 Main screen: admin or customer login
-![Uploading image.png…]()
+<img width="960" alt="ראשי" src="https://github.com/hozohar1/CakeShop/assets/116975069/c493fd30-eec9-4ef2-bc4d-5697c89f23b2">
 
