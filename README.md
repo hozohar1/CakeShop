@@ -32,6 +32,7 @@ Catalog: all products, clicking on a product will open a window with product det
 <img width="284" alt="צילום מסך 2023-11-26 161655" src="https://github.com/hozohar1/CakeShop/assets/116975069/e0bf81c7-aa4f-4123-97a1-28481b8ea73f">
 
 Cart: the list of all the products added to the cart and a payment key
+
 <img width="435" alt="צילום מסך 2023-11-26 163327" src="https://github.com/hozohar1/CakeShop/assets/116975069/02b50f9c-d6ac-4f59-b2da-85c32bd5f124">
 
 Order confirmation: order confirmation screen, option to return to the home screen and enter the store's Instagram page
